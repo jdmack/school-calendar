@@ -1,0 +1,60 @@
+    body {
+        font-family: "Arial";
+        font-size: 13px;
+    }
+    tr {
+        height: 20%;
+
+    }
+    td {
+        width: 160px;
+        vertical-align: top;
+        height: 160px;
+    }
+    th.dayHeader {
+        background-color: #101010;
+        color: white;
+    }
+    .month {
+        text-decoration: underline;
+    }
+    h2.week {
+        text-align: center;
+    }
+
+    .today {
+        border: solid #66CC00 5px;
+    }
+    .past {
+        background-color: gray;
+    }
+
+    .past > span{
+        color: black;
+        background-color: inherit;
+    }
+    .quiz {
+        font-weight: bold;
+        background-color: #FF6600;
+        color: white;
+    }
+    .test {
+        font-weight: bold;
+        background-color: red;
+        color: white;
+    }
+    .review {
+        font-weight: bold;
+        color: #00CC00;
+    }
+
+    .homework {
+        font-weight: bold;
+        color: #0099FF;
+    }
+
+    .project {
+        font-weight: bold;
+        color: green;
+    }
+
