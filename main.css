@@ -43,6 +43,11 @@
         background-color: red;
         color: white;
     }
+    .final {
+        font-weight: bold;
+        background-color: red;
+        color: white;
+    }
     .review {
         font-weight: bold;
         color: #00CC00;
@@ -58,3 +63,7 @@
         color: green;
     }
 
+    .holiday {
+        text-align: center;
+        font-weight: bold;
+    }
