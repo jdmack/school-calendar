@@ -22,7 +22,7 @@
 
     // INPUT ASSIGNMENTS
     $handle = fopen($assignment_file, "r");
-    $assignment_pattern = '/^([a-zA-Z0-9 ]+);([a-zA-Z0-9 #]+);([a-zA-Z]+);(\d\d\d\d)-(\d\d)-(\d\d)/';
+    $assignment_pattern = '/^([a-zA-Z0-9 ]+);([a-zA-Z0-9 #,]+);([a-zA-Z]+);(\d\d\d\d)-(\d\d)-(\d\d)/';
     $holiday_pattern = '/^Holiday;([a-zA-Z ]+);(\d\d\d\d)-(\d\d)-(\d\d)/';
     while($line = fgets($handle)) {
         if(substr(trim($line), 0, 1) == '#') {
