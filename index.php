@@ -1,13 +1,15 @@
 <?php
     date_default_timezone_set("America/Los_Angeles");
 
-    $start_date = "2013-03-31";
-    $end_date = "2013-06-15";
+    $start_date = "2013-09-22";
+    $end_date = "2013-12-13";
+    $first_day_of_classes = "2013-09-26";
     $assignment_file = "assignments.txt"; 
     $quarter_title = "Spring 2013";
     $days_of_week = array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
     $quarter_dates = createDateRangeArray($start_date,$end_date);
     $today_date = new DateTime();
+    $first_day_of_classes = new DateTime($first_day_of_classes); 
 
     $assignments = array();
     $holidays = array();
@@ -77,7 +79,7 @@
       </tr>
 <?php
    // BUILD CALENDAR
-    $weeks = 0;
+    $weeks = -1;
     foreach($quarter_dates as $this_date_str) {
 
         $this_date = new DateTime($this_date_str);
@@ -96,18 +98,36 @@
             echo "<tr>\n";
         }
 
-        if($this_date->format("Y-m-d") < $today_date->format("Y-m-d")) {
-            echo "<td id=\"$date_string\" class=\"past\">";
+        $css_class = "";
+
+        if($this_date->format("Y-m-d") < $first_day_of_classes->format("Y-m-d")) {
+            $css_class = "outside";
+        }
+        else if($this_date->format("Y-m-d") < $today_date->format("Y-m-d")) {
+            $css_class = "past";
         }
         else if($this_date->format("Y-m-d") == $today_date->format("Y-m-d")) {
-            echo "<td id=\"$date_string\" class=\"today\">";
+            $css_class = "today";
         }
-        else {
-            echo "<td id=\"$date_string\">";
+        if(array_key_exists($date_string, $holidays)) {
+            if($css_class != "") {
+                $css_class += ",holiday";
+            }
+            else {
+                $css_class = "holiday";
+            }
         }
 
+        echo "<td id=\"$date_string\" class =\"$css_class\">";
+
         if($week_day == 0) {
-            echo "<br><br><h2 class=\"week\">Week $weeks</h2>\n";
+            if($weeks == 11) { 
+                $week_title = "Finals Week";
+            }
+            else {
+                $week_title = "Week $weeks";
+            }
+            echo "<br><br><h2 class=\"week\">$week_title</h2>\n";
         }
         else {
             if($day == 1) {
@@ -165,7 +185,6 @@
         }
         return $aryRange;
     }
-
 
     class Assignment
     {

@@ -25,9 +25,14 @@
     .today {
         border: solid #66CC00 5px;
     }
+    .outside {
+        background-color: #484848;
+    }
     .past {
         background-color: gray;
     }
+    td.holiday {
+        background-color: #003366;
 
     .past > span{
         color: black;
@@ -66,4 +71,5 @@
     .holiday {
         text-align: center;
         font-weight: bold;
+        background-color: #3399FF;
     }
