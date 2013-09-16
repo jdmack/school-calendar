@@ -1,11 +1,12 @@
 <?php
     date_default_timezone_set("America/Los_Angeles");
 
-    $start_date = "2013-09-22";
-    $end_date = "2013-12-13";
+    $start_date           = "2013-09-22";
+    $end_date             = "2013-12-13";
     $first_day_of_classes = "2013-09-26";
-    $assignment_file = "assignments.txt"; 
-    $quarter_title = "Spring 2013";
+    $assignment_file      = "assignments.txt"; 
+    $quarter_title        = "Fall 2013";
+
     $days_of_week = array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
     $quarter_dates = createDateRangeArray($start_date,$end_date);
     $today_date = new DateTime();
@@ -16,7 +17,7 @@
 ?>
 <html>
 <head>
-  <title>Spring 2013 Calendar</title>
+  <title><?php echo $quarter_title; ?> Calendar</title>
   <link rel="stylesheet" type="text/css" href="main.css">
   <link rel="shortcut icon" href="favicon.ico" />
 </head>
